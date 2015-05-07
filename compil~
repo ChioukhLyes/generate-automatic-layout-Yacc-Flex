@@ -1,0 +1,4 @@
+flex projet.l
+yacc projet.y
+gcc y.tab.c -ly -lfl -lhpdf -lm
+./a.out entree

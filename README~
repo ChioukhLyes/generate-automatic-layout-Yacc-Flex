@@ -1,0 +1,65 @@
+/********************************************************/
+/*		AIDE POUR LANCER LE PROGRAMME		*/ 
+/********************************************************/
+
+Les prérequis techniques
+========================
+
+1 - La bibliothéque Libharu doit être disponible.
+
+Site officiel : /*http://libharu.org/ (disponible pour linux et windows et Mac)*/
+
+Installation de la bibliothéque
+===============================
+
+librahu.org utilise Github pour héberger les données.
+
+Nous allons clonner le dossier sur notre machine.
+
+	Commande 1 : git clone https://github.com/libharu/libharu.git  /*Copiez toute la ligne jusqu'au libharu.git*/
+	------------
+	Commande 2 : cd libharu 
+	------------
+	Commande 3 : cmake . /*N'oubliez pas le point*/
+	------------
+	Commande 4 : make
+	------------
+	Commande 5 : make install
+	------------
+	Commande 6 : LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib ; /*Ajouter le chemin a la variable path*/
+	------------
+	Commande 7 : export LD_LIBRARY_PATH 
+	------------
+
+Exécuter les commandes de 1 à 7. BRAVO! Libharu est maintenant disponible sur votre machine.
+
+
+Fichiers néceessaires
+=====================
+
+Pour lancer l'exécution il faut avoir dans le même réperoitre les fichiers suivant.
+
+	1 compil : 	/*Fichier pour lancer la compilation et l'exécution.*/
+	2 entree : 	/*Fichier qui contient le code a afficher en format pdf*/
+	3 projet.l : 	/*Le fichier flex de notre programme*/
+	4 projet.y : 	/*Le fichier yacc de notreprogramme*/
+	5 rouen.png : 	/*une image quelconque avec ce nom */
+
+
+Lancement de l'exécution
+========================
+Pour lancer la compilation et l'exécution il suffit de lancer la commande :
+
+	./compil
+
+Le fichier contient : 
+flex proj.l			/*compilation du fichier flex*/
+yacc proj.y			/*compilation du fichier yacc*/
+
+gcc y.tab.c -ly -lfl -lhpdf -lm	/* -lhpdf : pour avoir les bibliothéque de notre librairie
+				*  -lm : pour ajouter 'math'
+				*/
+
+./a.out entree			/*Lancer l'exécutable avec 'entree' comme fichier d'entree*/
+
+==================================================================================================/*Fin*/

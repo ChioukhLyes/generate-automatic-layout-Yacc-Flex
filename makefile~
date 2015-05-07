@@ -1,0 +1,9 @@
+proj : proj.l proj.y
+	@lex proj.l
+	@yacc proj.y
+	@gcc y.tab.c -ly -lfl
+	@echo "Compilation OK"
+
+all:
+	touch proj.y proj.l
+	make

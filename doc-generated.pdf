@@ -1,0 +1,336 @@
+%PDF-1.3
+%·¾­ª
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Kids [ 13 0 R 4 0 R 10 0 R ]
+/Count 3
+>>
+endobj
+3 0 obj
+<<
+/Producer (Haru Free PDF Library 2.4.0dev)
+>>
+endobj
+4 0 obj
+<<
+/Type /Page
+/MediaBox [ 0 0 595.276 841.89001 ]
+/Contents 5 0 R
+/Resources <<
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+/Font <<
+/F1 7 0 R
+/F2 8 0 R
+/F3 9 0 R
+>>
+>>
+/Parent 2 0 R
+>>
+endobj
+5 0 obj
+<<
+/Length 6 0 R
+>>
+stream
+20 TL
+BT
+/F1 11 Tf
+25 827.01202 Td
+0 Tc
+(Voila un exemple de fichier source a analyser.) '
+/F1 11 Tf
+/F2 17 Tf
+0 -27.89502 Td
+(1. : Avec un titre) '
+/F1 11 Tf
+0 -9.87799 Td
+0 Tc
+(Section avec un titre et un texte d'une taille par defaut.) '
+/F3 13 Tf
+0 -23.479 Td
+(1. 1. : Quelques definitions) '
+/F1 11 Tf
+/F1 22 Tf
+0 -19.75598 Td
+2.40575 Tc
+(Un texte avec une taille plus grande et suivi d'un) '
+0 Tc
+(commentaire et d'un tout petit texte.) '
+/F1 22 Tf
+/F1 22 Tf
+/F1 6 Tf
+0 -5.388 Td
+0 Tc
+(Vous arrivez a lire !!!.) '
+/F1 6 Tf
+/F1 11 Tf
+0 -9.87799 Td
+0 Tc
+(Retablire la taille du texte. \050On peut meme changer la taille des environnements et de leur texte\051.) '
+/F1 11 Tf
+0 -9.87799 Td
+0 Tc
+(\045 doit apparaitre s'il est precede d'un caractere d'echappement.) '
+/F1 11 Tf
+/F1 13 Tf
+0 -3.67401 Td
+() '
+/F1 11 Tf
+/F1 11 Tf
+0 -9.87799 Td
+0 Tc
+(La prochaine sectionest sans titre et elle est de taille plus grande.) '
+/F1 11 Tf
+/F2 19 Tf
+0 -29.76501 Td
+(2. :) '
+/F1 11 Tf
+/F1 11 Tf
+/F3 13 Tf
+0 -23.479 Td
+(2. 1. :) '
+/F1 11 Tf
+/F1 11 Tf
+/F2 17 Tf
+0 -27.89499 Td
+(3. : Les environnements) '
+/F1 11 Tf
+/F1 13 Tf
+0 -11.67401 Td
+(***Lemme 1 \133C'est quoi un Lemme\135***) '
+/F1 11 Tf
+0 -1.87799 Td
+0.32243 Tc
+(\011  Le lemme, en mathematiques et en logique mathematique, est un resultat intermediaire sur lequel on s'appuie pour) '
+0 Tc
+(conduire la demonstration d'un theoreme plus important.) '
+/F1 13 Tf
+0 -3.67401 Td
+(*****Fin*****) '
+/F1 11 Tf
+/F1 11 Tf
+/F1 13 Tf
+0 -11.674 Td
+(***Definition 1 \133Compilateur\135***) '
+/F1 11 Tf
+0 -1.87801 Td
+0.32243 Tc
+(\011  Le lemme, en mathematiques et en logique mathematique, est un resultat intermediaire sur lequel on s'appuie pour) '
+0.11138 Tc
+(conduire la demonstration d'un theoreme plus important.\011  Un compilateur est un programme informatique qui transforme) '
+0.11757 Tc
+(un code source ecrit dans un langage de programmation \050le langage source\051 en un autre langage informatique \050le langage) '
+0 Tc
+(cible\051.) '
+/F1 13 Tf
+0 -3.674 Td
+(*****Fin*****) '
+/F1 11 Tf
+/F1 11 Tf
+/F1 13 Tf
+0 -3.674 Td
+() '
+ET
+
+endstream
+endobj
+6 0 obj
+2072
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+>>
+endobj
+10 0 obj
+<<
+/Type /Page
+/MediaBox [ 0 0 595.276 841.89001 ]
+/Contents 11 0 R
+/Resources <<
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+/Font <<
+/F1 7 0 R
+/F2 8 0 R
+/F3 9 0 R
+>>
+>>
+/Parent 2 0 R
+>>
+endobj
+11 0 obj
+<<
+/Length 12 0 R
+>>
+stream
+22 TL
+/F1 11 Tf
+BT
+294.888 47.122 Td
+(2) '
+ET
+BT
+/F1 11 Tf
+/F1 11 Tf
+/F1 13 Tf
+25 827.216 Td
+(***Note 1 \133Union\135***) '
+/F1 11 Tf
+0 0.12201 Td
+0.32243 Tc
+(\011  Le lemme, en mathematiques et en logique mathematique, est un resultat intermediaire sur lequel on s'appuie pour) '
+0.11138 Tc
+(conduire la demonstration d'un theoreme plus important.\011  Un compilateur est un programme informatique qui transforme) '
+0.11757 Tc
+(un code source ecrit dans un langage de programmation \050le langage source\051 en un autre langage informatique \050le langage) '
+0.10723 Tc
+(cible\051.\011  Une variable de type union peut contenir, a des moments differents, des objets de types et de tailles differents. La) '
+0 Tc
+(taille d'une union est celle du plus volumineux de ses champs. C : langage, bibliotheque, applications , Henri Garreta.) '
+/F1 13 Tf
+0 -1.67401 Td
+(*****Fin*****) '
+/F1 11 Tf
+/F1 13 Tf
+0 -1.67401 Td
+() '
+/F1 11 Tf
+/F2 17 Tf
+0 -25.89502 Td
+(4. : Conclusion) '
+/F3 13 Tf
+0 -21.479 Td
+(4. 1. : Autres fonctionnalites) '
+/F1 11 Tf
+0 -7.87799 Td
+0 Tc
+(Nous avons coder la partie qui permet d'inserer des images mais malheuresement il y a un probleme avec l'insertion.) '
+/F1 11 Tf
+/F1 11 Tf
+/F1 11 Tf
+ET
+
+endstream
+endobj
+12 0 obj
+1213
+endobj
+13 0 obj
+<<
+/Type /Page
+/MediaBox [ 0 0 595 841 ]
+/Contents 14 0 R
+/Resources <<
+/ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+/Font <<
+/F1 7 0 R
+>>
+>>
+/Parent 2 0 R
+>>
+endobj
+14 0 obj
+<<
+/Length 15 0 R
+>>
+stream
+BT
+/F1 25 Tf
+27.9 TL
+203.91299 777.34003 Td
+(Table des matieres) '
+/F1 17 Tf
+-178.91299 -17.36603 Td
+(1. : Avec un titre) '
+536.776 27.90002 Td
+(1) '
+/F1 13 Tf
+-536.776 6.22601 Td
+(1. 1. : Quelques definitions) '
+538.776 27.90002 Td
+(1) '
+/F1 17 Tf
+-538.776 -17.36603 Td
+(2. :) '
+536.776 27.90002 Td
+(1) '
+/F1 13 Tf
+-536.776 6.22601 Td
+(2. 1. :) '
+538.776 27.90002 Td
+(1) '
+/F1 17 Tf
+-538.776 -17.36603 Td
+(3. : Les environnements) '
+536.776 27.90002 Td
+(1) '
+/F1 17 Tf
+-536.776 -17.36603 Td
+(4. : Conclusion) '
+536.776 27.90002 Td
+(2) '
+/F1 13 Tf
+-536.776 6.22601 Td
+(4. 1. : Autres fonctionnalites) '
+538.776 27.89999 Td
+(2) '
+ET
+
+endstream
+endobj
+15 0 obj
+632
+endobj
+xref
+0 16
+0000000000 65535 f
+0000000015 00000 n
+0000000064 00000 n
+0000000137 00000 n
+0000000201 00000 n
+0000000407 00000 n
+0000002533 00000 n
+0000002553 00000 n
+0000002652 00000 n
+0000002750 00000 n
+0000002850 00000 n
+0000003058 00000 n
+0000004327 00000 n
+0000004348 00000 n
+0000004526 00000 n
+0000005214 00000 n
+trailer
+<<
+/Root 1 0 R
+/Info 3 0 R
+/Size 16
+>>
+startxref
+5234
+%%EOF

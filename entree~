@@ -1,0 +1,47 @@
+Voila un exemple de fichier source a analyser.
+
+\sec{Avec un titre}
+Section avec un titre et un texte d'une taille par defaut.
+\ssec{Quelques definitions}
+
+\tailletxt{22}
+Un texte avec une taille plus grande et suivi d'un commentaire et d'un tout petit texte. %Et donc cette phrase n'apparait pas.
+
+\tailletxt{6}
+Vous arrivez a lire !!!.
+
+\tailletxt{11}
+Retablire la taille du texte. (On peut meme changer la taille des environnements et de leur texte).
+\% doit apparaitre s'il est precede d'un caractere d'echappement.
+
+\taillesec{19}
+\lignevide
+La prochaine sectionest sans titre et elle est de taille plus grande.
+
+\sec%sans titre
+
+\ssec%sans titre
+
+\taillesec{17}
+\sec{Les environnements}
+
+\lem{C'est quoi un Lemme}
+Le lemme, en mathematiques et en logique mathematique, est un resultat intermediaire sur lequel on s'appuie pour conduire la demonstration d'un theoreme plus important.
+\endlem
+
+\def{Compilateur}
+Un compilateur est un programme informatique qui transforme un code source ecrit dans un langage de programmation (le langage source) en un autre langage informatique (le langage cible).
+\enddef
+
+\lignevide
+
+\note{Union}
+Une variable de type union peut contenir, a des moments differents, des objets de types et de tailles differents. La taille d'une union est celle du plus volumineux de ses champs. C : langage, bibliotheque, applications , Henri Garreta.
+\endnote
+\lignevide
+\sec{Conclusion}
+\ssec{Autres fonctionnalites}
+Nous avons coder la partie qui permet d'inserer des images mais malheuresement il y a un probleme avec l'insertion.
+
+\tablematiere{true}
+

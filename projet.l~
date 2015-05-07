@@ -1,0 +1,184 @@
+%{
+#include <string.h>
+%}
+
+Chiffre                 [0-9]
+Entier                  [0-9]*
+Boolean                 "VRAI"|"FAUX"
+Commentaire		%([^\n]*|\n?|[^%])
+Echapper		\\%
+Rien			^[\n\t ]
+Blancs			[\t]*
+PasDeCar		({Blancs}|[ ])*[\n]
+Autre			.
+
+%%
+
+
+{Entier}		{strcpy(yylval.CHAINE,yytext); return ENTIER; }
+{Boolean}		return BOOLEAN;
+{Echapper}		return ECHAPPER;
+{Blancs}		return BLANCS;
+{Commentaire}		return COMMENTAIRE;
+{PasDeCar}		return FINLIGNE;
+{Rien}			
+"{"				return ('{');
+"}"				return ('}');
+"\\taillesec"		{ yylval.CHAINE = strdup(yytext); return MATAILLE; }
+"\\sec"			{ yylval.CHAINE = strdup(yytext); return SEC; }
+"\\taillessec"		{ yylval.CHAINE = strdup(yytext); return MATAILLE; }
+"\\ssec"		{ yylval.CHAINE = strdup(yytext); return SSEC; }
+"\\tailletxt"		{ yylval.CHAINE = strdup(yytext); return MATAILLE; }
+"\\tailleenvi"		{ yylval.CHAINE = strdup(yytext); return MATAILLE; }
+"\\tailleenvicont"	{ yylval.CHAINE = strdup(yytext); return MATAILLE; }
+"\\tablematiere"	{ yylval.CHAINE = strdup(yytext); return TABMAT; }
+"\\image"		{ yylval.CHAINE = strdup(yytext); return IMAGE; }
+"\\def"			{ yylval.CHAINE = strdup(yytext); return ENV; }
+"\\enddef"		{ yylval.CHAINE = strdup(yytext); return ENDENV; }
+"\\lem"			{ yylval.CHAINE = strdup(yytext); return ENV; }
+"\\endlem"		{ yylval.CHAINE = strdup(yytext); return ENDENV; }
+"\\note"		{ yylval.CHAINE = strdup(yytext); return ENV; }
+"\\endnote"		{ yylval.CHAINE = strdup(yytext); return ENDENV; }
+"\\lignevide"		return('\n');
+{Autre}			{ yylval.CHAINE = strdup(yytext); return AUTRES; }
+
+%%
+/*Main*/
+
+main(int argc, char **argv){
+if(argc > 0) {
+
+			/*
+			HPDF_Doc HPDF_New  (HPDF_Error_Handler    user_error_fn,
+                  	void                 *user_data);
+			HPDF_New() create an instance of a document object and initialize it. 
+			*/
+
+mon_document = HPDF_New (NULL, NULL); 
+		
+		
+			/* 
+			HPDF_Page HPDF_AddPage (HPDF_Doc pdf);
+			HPDF_AddPage() creates a new page and adds it after the last page of a document. 
+		 	*/
+
+page[HPDF_mypage] = HPDF_AddPage (mon_document);
+
+			/*
+			HPDF_Page_SetSize (HPDF_Page page, HPDF_PageSizes size, HPDF_PageDirection direction);
+			HPDF_Page_SetSize() changes the size and direction of a page to a predefined size
+			*/
+
+HPDF_Page_SetSize (page[HPDF_mypage], HPDF_PAGE_SIZE_A4, HPDF_PAGE_PORTRAIT);
+				
+		
+			/*
+			HPDF_Page_SetTextLeading() sets the text leading (line spacing) for text showing.
+			HPDF_Page_SetTextLeading  (HPDF_Page  page, HPDF_REAL  value);
+		        */
+
+HPDF_Page_SetTextLeading (page[HPDF_mypage], 20);
+		
+/*Définir la mise en page */ 
+misenpage.left = 25;
+misenpage.top = 25;
+misenpage.right = HPDF_Page_GetWidth (page[HPDF_mypage]) - 25;
+misenpage.bottom = HPDF_Page_GetHeight (page[HPDF_mypage]) - 25;
+
+/*Initialisation de HPDFMyStruct*/		
+HPDFMyStruct.sec[0] = '0'; HPDFMyStruct.sec[1] = '\0';
+HPDFMyStruct.ssec[0] = '0'; HPDFMyStruct.ssec[1] = '\0';
+HPDFMyStruct.numerote[0] = '0'; HPDFMyStruct.numerote[1] = '\0';
+HPDFMyStruct.def[0] = '0'; HPDFMyStruct.def[1] = '\0';
+HPDFMyStruct.lem[0] = '0'; HPDFMyStruct.lem[1] = '\0';
+HPDFMyStruct.note[0] = '0'; HPDFMyStruct.note[1] = '\0';
+HPDFMyStruct.page[0] = '1'; HPDFMyStruct.page[1] = '\0';
+			/*
+			HPDF_Page_BeginText() begins a text object and sets the current text position to the point (0, 0).
+			HPDF_Page_BeginText(HPDF_Page  page);
+			*/
+HPDF_Page_BeginText (page[HPDF_mypage]);
+
+/* Ouverture du fichier d'entree */
+yyin = fopen(argv[1], "r");
+/*Lancer l'analyse lexicale*/
+yyparse(); 
+			/*
+			HPDF_Page_EndText() ends a text object.
+			HPDF_Page_EndText(HPDF_Page  page);
+			*/
+HPDF_Page_EndText (page[HPDF_mypage]);
+		
+
+/*L'utilisateur choisit d'ajouter ou non  une table de symboles */
+if (tabmat==1) {
+HPDF_mypage++;
+page[HPDF_mypage] = HPDF_InsertPage(mon_document, page[0]);
+			/*
+			HPDF_Page_BeginText() begins a text object and sets the current text position to the point (0, 0).
+			HPDF_Page_BeginText(HPDF_Page  page);
+			*/
+HPDF_Page_BeginText(page[HPDF_mypage]);
+
+/*Définir le style du texte pour le titre : Table des matières */
+HPDF_Page_SetFontAndSize (page[HPDF_mypage], HPDF_GetFont (mon_document, "Times-Roman", "WinAnsiEncoding") , 25);
+Position = HPDF_Page_GetCurrentTextPos(page[HPDF_mypage]);
+
+/*Display texte*/
+HPDF_Page_TextRect (page[HPDF_mypage],  misenpage.left, misenpage.bottom - decl, misenpage.right, misenpage.top,"Table des matieres", HPDF_TALIGN_CENTER, NULL);
+		
+int HPDF_Ntitre_local = 0;
+int HPDF_i = 0;
+int HPDF_m_local = 0;
+int HPDF_n_local = 0;
+
+
+while (HPDF_Ntitre_local < HPDF_Ntitre) {
+/*Boucle pour ecrire les titres des section*/
+
+HPDF_Page_SetFontAndSize (page[HPDF_mypage], HPDF_GetFont (mon_document, "Times-Roman", "WinAnsiEncoding") , HPDFTailleSec);
+Position = HPDF_Page_GetCurrentTextPos(page[HPDF_mypage]);
+HPDFMyStruct.numerote[0] = *HPDF_Npage[HPDF_n_local];
+HPDFMyStruct.numerote[0]++;
+/*Ecrire le titre de la section et le num de page */
+HPDF_Page_TextRect (page[HPDF_mypage],  misenpage.left, Position.y - 30, misenpage.right, misenpage.top,HPDF_StockS[HPDF_Ntitre_local], HPDF_TALIGN_LEFT, NULL);
+HPDF_Page_TextRect (page[HPDF_mypage],  misenpage.left, Position.y - 30, misenpage.right, misenpage.top,HPDFMyStruct.numerote, HPDF_TALIGN_RIGHT, NULL);
+HPDF_Ntitre_local++;
+HPDF_n_local++;
+
+for (HPDF_i = 0; HPDF_i < HPDF_titres[HPDF_Ntitre_local]; HPDF_i++) {
+/*Boucle interne pour ecrire les titres des sous sections*/
+
+HPDF_Page_SetFontAndSize (page[HPDF_mypage], HPDF_GetFont (mon_document, "Times-Roman", "WinAnsiEncoding") , HPDFTailleSsec);
+Position = HPDF_Page_GetCurrentTextPos(page[HPDF_mypage]);
+HPDFMyStruct.numerote[0] = *HPDF_Npage[HPDF_n_local]; HPDFMyStruct.numerote[0]++;
+/*Ecrire le titre des sous sections dans la table des matières*/
+HPDF_Page_TextRect (page[HPDF_mypage],misenpage.left, Position.y - 10, misenpage.right, misenpage.top, HPDF_StockSs[HPDF_m_local], HPDF_TALIGN_LEFT, NULL);
+/*Ecrire les numéros des sous sections de pages*/
+HPDF_Page_TextRect (page[HPDF_mypage],misenpage.left, Position.y - 10, misenpage.right, misenpage.top,HPDFMyStruct.numerote, HPDF_TALIGN_RIGHT, NULL);
+HPDF_m_local++; HPDF_n_local++;}					
+}
+			/*
+			HPDF_Page_EndText() ends a text object.
+			HPDF_Page_EndText(HPDF_Page  page);
+			*/
+HPDF_Page_EndText(page[HPDF_mypage]); /*Fin traitement table des matières*/}
+
+			/*
+			save the document to a file
+ 			HPDF_SaveToFile (pdf, "name.pdf");
+			*/	
+HPDF_SaveToFile (mon_document, "mon_document.pdf");
+
+			/*
+			free all resources
+			HPDF_Free (pdf);  
+			*/
+HPDF_Free (mon_document);
+}}
+
+void yyerror (char *errors) {
+fprintf (stderr, "%s\n", errors);
+}
+
+

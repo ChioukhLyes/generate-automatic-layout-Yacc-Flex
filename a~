@@ -1,0 +1,41 @@
+Voila un exemple de fichier source a analyser.
+
+\sec{Avec un titre}
+Les sections sont numerotee. On peut egalement definir des environnements particuliers.
+Les sous sections font apparaitre le numero de section.
+\ssec{Quelques definitions}
+
+\def{Environnements}
+On definira des environnemetns de definitions,lemmes, theoremes,exemples ... 
+Remarquons que les combinaisons de lignes vides sont effacees
+De meme que toute combinaison de blancs.
+		Ou les blancs en debut de ligne. 
+\enddef
+
+Hors d'un environnement, le texteest colle a gauche.
+
+\lem{espaces et environnements}
+Dans un environnement, le texte est decale.
+
+Sauf si le texte est beaucoup trop long a afficher sur une seule ligne, et dans ce cas la coupure depend de la taille de la ligne.
+\endlem
+
+Les commentaires sont effaces. %Et donc cette phrase n'apparait pas.
+
+Le caractere \%  doit apparaitre s'il est precede d'un caracter d'echappement.
+
+Les titres de sections et environnements ne sont pas obligatoires : 
+
+\sec%sans titre
+
+%et ca s'affiche
+Les numeros de sous section sont reinitialises		au changement de section.
+
+
+
+
+\ssec
+\lem
+ce programme fonctionne!
+\endlem
+.
