@@ -65,7 +65,7 @@ Lancement de l'exécution
 #1.0
 
 
-**Free Software, Yeah!**
+**Free Software !**
 
 [Libharu]:http://libharu.org/
 
